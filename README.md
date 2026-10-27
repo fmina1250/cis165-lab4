@@ -6,8 +6,6 @@ This repository contains two C++ programs for Lab 4: average.cpp and ocean_level
 
 ## Compilation and Running Instructions
 
-Make sure you have a C++ compiler installed (such as g++), open your terminal in the repository folder, and use the commands below.
-
 ### 1. Average of Five Values (average.cpp)
 * **To compile:**
   g++ -std=c++17 -Wall -Wextra average.cpp -o average
@@ -40,7 +38,7 @@ Make sure you have a C++ compiler installed (such as g++), open your terminal in
 ## Code Explanations
 
 ### Why should the five values and the average use the double data type?
-Using double allows the program to handle numbers with decimal places. Even if whole integers are assigned, calculating an average often yields a fractional component. If int were used instead, integer division would truncate decimal digits, producing inaccurate results.
+Having the double data type allows for the values and the average to have decimal places. If you use the int data type for handling averages, then you will be neglecting the decimal point yeilding inaccurate results.
 
 ### Trace the assigned values through sum and average.
 1. The five variables are initialized: value1 = 28.0, value2 = 32.0, value3 = 37.0, value4 = 24.0, value5 = 33.0.
@@ -48,7 +46,7 @@ Using double allows the program to handle numbers with decimal places. Even if w
 3. The average calculation evaluates sum / 5.0 (154.0 / 5.0), storing 30.8 in average.
 
 ### Why should the average calculation divide the completed sum rather than only the final value?
-Due to mathematical operator precedence, dividing without parentheses or without using the stored total would only divide the last term (e.g., value1 + value2 + value3 + value4 + (value5 / 5)), which produces an incorrect result. Dividing the pre-computed sum ensures the entire set of numbers is properly averaged.
+It would not calculate the average properly because of order of operations. It will do the division operation first and then add onto it which is not how averages are calculated that is why you ahve to use parentheses if you don't store the sum as its own value.
 
 ### Explain how the ocean-level calculations use the annual rate and number of years.
 The program multiplies the constant annual rise rate (RISE_RATE_MM_PER_YEAR) by the specific duration in years (years1, years2, years3). Each product represents the cumulative ocean level rise over that time period.
